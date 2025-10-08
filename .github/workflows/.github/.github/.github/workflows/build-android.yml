@@ -1,0 +1,30 @@
+name: Build Android (Godot 4.2.2)
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download Godot
+        run: |
+          wget https://downloads.tuxfamily.org/godotengine/4.2.2/Godot_v4.2.2-stable_linux.x86_64.zip
+          unzip Godot_v4.2.2-stable_linux.x86_64.zip
+          mv Godot_v4.2.2-stable_linux.x86_64 Godot
+
+      - name: Export Android APK (debug)
+        run: |
+          mkdir -p build/android
+          ./Godot --headless --path . --export-debug "Android" build/android/hero_quest.apk
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: hero_quest.apk
+          path: build/android/hero_quest.apk
