@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+text = "HP: 10  Score: 0  Lvl: 1"
