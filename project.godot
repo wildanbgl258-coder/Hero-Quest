@@ -1,0 +1,7 @@
+[gd_resource type="EditorProjectSettings" load_steps=2 format=3]
+
+[application]
+
+config/name="Hero Quest"
+config/description="Hero Quest - Remastered (build-ready)"
+run/main_scene="res://scenes/Main.tscn"
